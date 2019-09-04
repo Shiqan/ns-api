@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "*"
+dataclasses-json = "*"
+
+[dev-packages]
+"pylint" = "*"
+"autopep8" = "*"
+rope = "*"
+pytest = "*"
+python-coveralls = "*"
+pytest-cov = "==2.5.1"
+
+[requires]
+python_version = "3.7"
