@@ -9,4 +9,4 @@ __version__ = '0.0.1'
 
 
 from .models import *
-from .api import NSAPI
+from .api import NSAPI, AsyncNSAPI
