@@ -283,6 +283,27 @@ class Trip:
     route_id: Optional[str] = None
     share_url: Optional[Link] = None
 
+@dataclass_json
+@dataclass
+class Price:
+    price: int
+    class_type: Optional[str] = field(default = None, metadata=config(field_name='classType'))
+    discount_type: Optional[str] = field(default = None, metadata=config(field_name='discountType'))
+    product_type: Optional[str] = field(default = None, metadata=config(field_name='productType'))
+    supplements: Optional[Dict[str, int]] = None
+
+@dataclass_json
+@dataclass
+class PriceOption:
+    type: Optional[str] = None
+    price_unit: Optional[int] = field(default = None, metadata=config(field_name='tariefEenheiden'))
+    prices: Optional[List[Price]] = None
+    total_prices: Optional[List[Price]] = field(default = None, metadata=config(field_name='totalPrices'))
+    transporter: Optional[str] = None
+    from_station: Optional[str] = field(default = None, metadata=config(field_name='from'))
+    to_station: Optional[str] = field(default = None, metadata=config(field_name='to'))
+
+
 # note type
 # "UNKNOWN",
 # "ATTRIBUTE",
@@ -322,3 +343,33 @@ class Trip:
 # "MEDIUM",
 # "HIGH"
 
+# price types
+# "FIXED_PRICE"
+# "ROUTE_WITH_INDICATION"
+# "FREE_TRAVEL"
+# "ROUTE_WITHOUT_OPTIONS"
+
+# class types
+# "FIRST"
+# "SECOND
+
+# discount type
+# "FORTY_PERCENT"
+# "TWENTY_PERCENT"
+# "FIP_LL"
+# "NONE"
+
+# price product type
+# "SINGLE_FARE"
+# "RETURN_FARE"
+# "SINGLE_FARE_PAPER_TICKET"
+# "RETURN_FARE_PAPER_TICKET"
+# "SINGLE_FARE_SINGLE_USE_OV_CHIPKAART"
+# "RETURN_FARE_SINGLE_USE_OV_CHIPKAART"
+# "TRAJECTVRIJ_NSBUSINESSKAART"
+# "TRAJECTVRIJ_JAAR"
+# "TRAJECTVRIJ_MAAND"
+# "RAILRUNNER"
+# "SUPPLEMENT_SINGLE_USE_OV_CHIPKAART"
+# "SUPPLEMENT_ICE_INTERNATIONAL"
+# "SUPPLEMENT_INTERCITY_DIRECT"
