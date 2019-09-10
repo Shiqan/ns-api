@@ -33,7 +33,10 @@ jobs:
       run: |
         pipenv install pytest
         pipenv run pytest
-    - name: Publish a Python distribution to PyPI
+    - name: Build package
+      run: |
+         pipenv run python setup.py sdist
+    - name: Publish to PyPI
       uses: pypa/gh-action-pypi-publish@master
       with:
         user: __token__
